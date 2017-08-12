@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>com.xml.parser.parser parserService</servlet-name>
+        <servlet-class>com.xml.parser.server.parserServiceImpl</servlet-class>
+    </servlet>
+    <context-param>
+        <!-- max size of the upload request -->
+        <param-name>maxSize</param-name>
+        <param-value>3145728</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>uploadServlet</servlet-name>
+        <servlet-class>com.xml.parser.server.FileUploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>uploadServlet</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>com.xml.parser.parser parserService</servlet-name>
+        <url-pattern>/parser/parserService</url-pattern>
+    </servlet-mapping>
+</web-app>
